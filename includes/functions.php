@@ -69,16 +69,18 @@
         ]);
 
         
-           //day variables
-            $totalDays=count($day)*count($month);
-            $firstday=$day[0];
+             //day variables
+             $firstday=$day[0];
              $dayTotal=count($day)-1;
+
              //month variables
              $firstmonth=$month[0];
              $monthTotal=count($month)-1;
+
              //year variables
              $firstyear=$year[0];
-             $yearTotal=count($year)-1; 
+             $yearTotal=count($year)-1;
+
              //symbol variables
              $symbols=count($symbol);
 
@@ -90,6 +92,7 @@
                 //if symbol does not exist
                 if ($handle === false)
                 {
+                    $notExist[]=$symbol[$i];
                     $symbol[$i]=NULL;
                     continue;                    
                 }
@@ -121,6 +124,7 @@
                 //if only partial data on a stock ticker, set to null
                 if(count($date[$key]) !==$maxDays)
                 {
+                     $notThroughout[]=$symbol[$key];
                      $check[$key]=NULL;
                      $symbol[$key]=NULL;
                 }
@@ -163,7 +167,7 @@
 
             foreach($dailyChange as $k => $value) 
             {
-
+               //used for st.dev calculations
                $difference[]=$dailyChange[$k]; 
             
                 //inital 12 day average 
@@ -236,7 +240,7 @@
         }
       }
 
-      //Stock Index
+      //Stock Index Chart
       foreach ($dailyChange as $key => $value) 
       {
         if($key==($maxDays-1))
@@ -251,7 +255,7 @@
       }
 
 
-      //TwelveDay&Energy Charts
+      //TwelveDay & Index Charts
       foreach ($dailyChange as $key => $value) 
       {
 
@@ -300,7 +304,7 @@
       }
 
 
-    //Twelve & TwentySixDay & Energy Charts
+    //Twelve & TwentySixDay & Index Charts
       foreach ($dailyChange as $key => $value) 
       {
 
@@ -322,6 +326,16 @@
 
         
       }
+            if($notExist!==NULL)
+            {
+            $notExist=implode(",",$notExist);
+            $notExist=rtrim($notExist, ",");
+            }
+            if($notThroughout!==NULL)
+            {    
+            $notThroughout=implode(",",$notThroughout);
+            $notThroughout=rtrim($notThroughout, ",");
+            }
 
 
     return [
@@ -329,7 +343,9 @@
     "stockTwelveTwentySix"=> $stockTwelveTwentySix,
     "stockTwelve"=>$stockTwelve,
     "twentyDay" =>$twentyDay,
-    "stockIndex" =>$stockIndex
+    "stockIndex" =>$stockIndex,
+    "notExist" => $notExist,
+    "notThroughout" => $notThroughout
     ];
     // close connection to Yahoo
     fclose($handle);

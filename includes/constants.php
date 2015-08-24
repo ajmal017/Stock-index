@@ -5,12 +5,12 @@
     define("DATABASE", "Projects");
 
     // your database's password
-    define("PASSWORD", "XXXXX");
+    define("PASSWORD", "1@cs50");
 
     // your database's server
-    define("SERVER", "XXXX");
+    define("SERVER", "localhost");
 
     // your database's username
-    define("USERNAME", "XXXXX");
+    define("USERNAME", "root");
 
 ?>

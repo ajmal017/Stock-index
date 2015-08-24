@@ -9,7 +9,7 @@
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Day');
-      data.addColumn('number', 'Energy Index(%)');
+      data.addColumn('number', 'Stock Index(%)');
      
       
       data.addRows([
@@ -19,11 +19,11 @@
       
       var options = {
         chart: {
-          title: 'Energy Stock Index',
+          title: 'Stock Index',
           subtitle: 'in USD'
         },
-        width: 900,
-        height: 500
+        width: 1400,
+        height: 1100
       };
 
       var chart = new google.charts.Line(document.getElementById('stocks'));
@@ -42,7 +42,7 @@
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Day');
-      data.addColumn('number', 'Energy Index(%)');
+      data.addColumn('number', 'Stock Index(%)');
       data.addColumn('number', '12-Day EMA');  
       data.addColumn('number', '26-Day EMA');   
       
@@ -53,11 +53,11 @@
       
       var options = {
         chart: {
-          title: 'Energy Stock Index w/12-day and 26-day EMA',
+          title: 'Stock Index w/12-day and 26-day EMA',
           subtitle: 'in USD'
         },
-        width: 900,
-        height: 500
+        width: 1400,
+        height: 1100
       };
 
       var chart = new google.charts.Line(document.getElementById('twelvetwentysixday'));
@@ -74,7 +74,7 @@
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Day');
-      data.addColumn('number', 'Energy Index(%)');
+      data.addColumn('number', 'Stock Index(%)');
       data.addColumn('number', '12-Day EMA');    
       
       data.addRows([
@@ -84,11 +84,11 @@
       
       var options = {
         chart: {
-          title: 'Energy Stock Index w/12-day EMA',
+          title: 'Stock Index w/12-day EMA',
           subtitle: 'in USD'
         },
-        width: 900,
-        height: 500
+        width: 1400,
+        height: 1100
       };
 
       var chart = new google.charts.Line(document.getElementById('twelvetwentyday'));
@@ -105,7 +105,7 @@
 
       var data = new google.visualization.DataTable();
       data.addColumn('number', 'Day');
-      data.addColumn('number', 'Energy Index(%)');
+      data.addColumn('number', 'Stock Index(%)');
       data.addColumn('number', 'Lower BB');
       data.addColumn('number', 'Upper BB');    
       
@@ -116,11 +116,11 @@
       
       var options = {
         chart: {
-          title: 'Energy Stock Index w/Bollinger Point Comparisons',
+          title: 'Stock Index w/Bollinger Band Comparisons',
           subtitle: 'in USD'
         },
-        width: 900,
-        height: 500
+        width: 1400,
+        height: 1100
       };
 
       var chart = new google.charts.Line(document.getElementById('Bollinger'));
@@ -128,6 +128,32 @@
       chart.draw(data, options);
     }
   </script>
+
+
+<div id="exclusions">
+
+<?php 
+if($notExist!==NULL)
+{
+	echo('<p><span style="font-weight:bold">'.$notExist.'</span> does not return any results.  Please check spelling and date, then try again</p>');
+}
+
+if($notThroughout!==NULL)
+{
+	echo('<p><span style="font-weight:bold">'.$notThroughout.'</span> only returns partial results.  To ensure integrity of the index, these dates have been
+	ignored.  Please verify stocks span entire range of selected dates </p>');
+}
+else 
+{
+	echo('<h4 style="color:green"> All stocks are displayed');
+}
+
+?>
+</div>
+
+
+<br>
+	<br>
 
   <div id="stocks"></div>
 

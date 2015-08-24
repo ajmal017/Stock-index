@@ -5,7 +5,6 @@
  // render portfolio
     render("portfolio.php", ["title" => "Portfolio"]);
 
-?>
 
     
 ?>
