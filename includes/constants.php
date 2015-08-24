@@ -2,15 +2,15 @@
 
 
     // your database's name
-    define("DATABASE", "Projects");
+    define("DATABASE", "XXXX");
 
     // your database's password
-    define("PASSWORD", "1@cs50");
+    define("PASSWORD", "XXXX");
 
     // your database's server
-    define("SERVER", "localhost");
+    define("SERVER", "XXXX");
 
     // your database's username
-    define("USERNAME", "root");
+    define("USERNAME", "XXXX");
 
 ?>
