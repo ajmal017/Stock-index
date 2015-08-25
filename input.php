@@ -1,39 +1,75 @@
 <?php
- require("includes/functions.php");
-  $energy=($_POST["energy"]);
- $array=($_POST["symbols"]);
+	 require("includes/functions.php");
+	 $index=($_POST["stocks"]);
+	 $array=($_POST["symbols"]);
+	 //year globals
+	 $fromYear=($_POST["fromyear"]);
+	 $toYear=($_POST["toyear"]);
 
-//place user input into an array
- if(strpos($array,' ') !==FALSE)
- {
- 	$symbol=explode(' ', $array);
- 	
- }
- else if(strpos($array,',') !==FALSE)
- {
- 	$symbol=explode(',', $array);
- }
-
- if($energy !==FALSE)
- {
- 	$symbol=explode(' ', $energy);
- }
+	 //month globals
+	 $fromMonth=($_POST["frommonth"]);
+	 $toMonth=($_POST["tomonth"]);
+	 //day globals
+	 $fromDay=($_POST["fromday"]);
+	 $toDay=($_POST["today"]);
 
 
+	//place user input into an array
+	if($array !=NULL)
+	{
+		 if(strpos($array,' ') !==FALSE && strpos($array,',') !==FALSE)
+		 {
+		 	echo("<h3>Please properly format stock tickers</h3>");
+		 	break;
+		 }
 
- //var_dump($symbol);
-  //$symbol= ["XOM","CVX","RDS-A","PTR","TOT","SNP","COP","IMO","BP","E","STO","EC","SU","MRO","PBR","MDU", "HES","YPF","XEC",
- //"MUR","DO","RIG","HERO","CKH","PBT","LYB","DOW","DD","NEU", "WLK", "MEOH",
- //"GRA", "LXU", "HUN", "CE","POL", "EMN","VLO","PSX","MPC","HFC","PBF","TSO",
-//"DK","CVI","WNR","ALJ","APD","CF","RTK"];
+		 else if(strpos($array,' ') !==FALSE)
+		 {
+		 	$symbol=explode(' ', $array);
 
-    $day=["2","3","4","5","6","7","8","9"];
-    $month=["0","1"];
-    $year=["2004","2005"];
-     $stock=lookup($year,$month,$day,$symbol);
+		 	
+		 }
 
- render ("charts.php", ["bb" => $stock["bb"], "stockTwelveTwentySix" =>$stock ["stockTwelveTwentySix"],"stockTwelve" =>$stock["stockTwelve"], "twentyDay" =>$stock["twentyDay"],"stockIndex" =>$stock["stockIndex"]]);
-      
-           
+
+		 else if(strpos($array,',') !==FALSE)
+		 {
+		 	$symbol=explode(',', $array);
+		 }
+
+		 else if(((count($array))==1) !==FALSE)
+		 {
+		 	$symbol=array($array);
+		 }
+
+
+
+	}
+	else
+	{
+	     $symbol=explode(' ', $index);
+	}
+
+
+
+	//year
+
+	$years=$fromYear." ".$toYear;
+	$year=explode(' ', $years);
+
+	//month
+
+	$months=($fromMonth-1)." ".($toMonth-1);
+	$month=explode(' ', $months);
+
+	//days
+
+	$days=$fromDay." ".$toDay;
+	$day=explode(' ', $days);
+
+	$stock=lookup($year,$month,$day,$symbol);
+
+	render ("charts.php", ["notThroughout"=>$stock["notThroughout"],"notExist"=>$stock["notExist"],"bb" => $stock["bb"], "stockTwelveTwentySix" =>$stock ["stockTwelveTwentySix"],"stockTwelve" =>$stock["stockTwelve"], "twentyDay" =>$stock["twentyDay"],"stockIndex" =>$stock["stockIndex"]]);
+	      
+	           
 
 ?>
