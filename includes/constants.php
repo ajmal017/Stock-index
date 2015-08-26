@@ -1,16 +1,16 @@
 <?php
 
 
-    // your database's name
-    define("DATABASE", "Projects");
+    // database's name
+    define("DATABASE", "XXXX");
 
-    // your database's password
-    define("PASSWORD", "1@cs50");
+    // database's password
+    define("PASSWORD", "XXXXX");
 
-    // your database's server
-    define("SERVER", "localhost");
+    // database's server
+    define("SERVER", "XXXX");
 
-    // your database's username
-    define("USERNAME", "root");
+    // database's username
+    define("USERNAME", "XXXX");
 
 ?>

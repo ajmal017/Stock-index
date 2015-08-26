@@ -20,7 +20,6 @@
       var options = {
         chart: {
           title: 'Stock Index',
-          subtitle: 'in USD'
         },
         width: 1400,
         height: 1100
@@ -54,7 +53,6 @@
       var options = {
         chart: {
           title: 'Stock Index w/12-day and 26-day EMA',
-          subtitle: 'in USD'
         },
         width: 1400,
         height: 1100
@@ -85,7 +83,6 @@
       var options = {
         chart: {
           title: 'Stock Index w/12-day EMA',
-          subtitle: 'in USD'
         },
         width: 1400,
         height: 1100
@@ -117,7 +114,6 @@
       var options = {
         chart: {
           title: 'Stock Index w/Bollinger Band Comparisons',
-          subtitle: 'in USD'
         },
         width: 1400,
         height: 1100
@@ -127,6 +123,8 @@
 
       chart.draw(data, options);
     }
+
+    
   </script>
 
 
@@ -143,7 +141,7 @@ if($notThroughout!==NULL)
 	echo('<p><span style="font-weight:bold">'.$notThroughout.'</span> only returns partial results.  To ensure integrity of the index, these dates have been
 	ignored.  Please verify stocks span entire range of selected dates </p>');
 }
-else 
+if($notThroughout===NULL && $notExist===NULL)
 {
 	echo('<h4 style="color:green"> All stocks are displayed');
 }
@@ -154,12 +152,11 @@ else
 
 <br>
 	<br>
+    <div id="stocks"></div>
+    <br>
+    <div id="twelvetwentyday"></div>
+    <br>
+    <div id="twelvetwentysixday"></div>
+    <br>
+    <div id="Bollinger"></div>
 
-  <div id="stocks"></div>
-
-<br>
-  <div id="twelvetwentyday"></div>
-<br>
-  <div id="twelvetwentysixday"></div>
-<br>
-  <div id="Bollinger"></div>

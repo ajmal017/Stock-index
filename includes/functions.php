@@ -328,15 +328,39 @@
       }
             if($notExist!==NULL)
             {
-            $notExist=implode(",",$notExist);
-            $notExist=rtrim($notExist, ",");
-            }
-            if($notThroughout!==NULL)
-            {    
-            $notThroughout=implode(",",$notThroughout);
-            $notThroughout=rtrim($notThroughout, ",");
+                if($notExist[0]===0)
+                {
+                    $notExist==NULL;
+                }
+                else
+                {
+                    if(count($notExist)==1)
+                    {
+                        $notExist=implode($notExist);
+                    }
+                    else
+                    {
+                    $notExist=implode(",",$notExist);
+                    $notExist=rtrim($notExist, ",");
+                    }
+                }
             }
 
+            if($notThroughout!==NULL)
+            {
+
+                if(count($notThroughout)==1)
+                    {
+                        $notThroughout=implode($notThroughout);
+                    }
+                    else
+                    {
+                        $notThroughout=implode(",",$notThroughout);
+                        $notThroughout=rtrim($notThroughout, ",");
+                    }    
+            
+            }
+            //var_dump($notThroughout);
 
     return [
     "bb" => $bb,

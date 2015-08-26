@@ -65,7 +65,6 @@
 
 	$days=$fromDay." ".$toDay;
 	$day=explode(' ', $days);
-
 	$stock=lookup($year,$month,$day,$symbol);
 
 	render ("charts.php", ["notThroughout"=>$stock["notThroughout"],"notExist"=>$stock["notExist"],"bb" => $stock["bb"], "stockTwelveTwentySix" =>$stock ["stockTwelveTwentySix"],"stockTwelve" =>$stock["stockTwelve"], "twentyDay" =>$stock["twentyDay"],"stockIndex" =>$stock["stockIndex"]]);

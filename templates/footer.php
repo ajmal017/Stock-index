@@ -1,7 +1,7 @@
             </div>
 
             <div id="bottom">
-                Copyright &#169; Jordan Vartanian
+                <p style="text-align:center;">Copyright &#169; Jordan Vartanian</p>
             </div>
 
         </div>
