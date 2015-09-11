@@ -21,13 +21,15 @@
         chart: {
           title: 'Stock Index',
         },
-        width: 1400,
-        height: 1100
+        width: 1100,
+        height: 900
       };
 
       var chart = new google.charts.Line(document.getElementById('stocks'));
 
       chart.draw(data, options);
+
+
     }
   </script>
 
@@ -54,8 +56,8 @@
         chart: {
           title: 'Stock Index w/12-day and 26-day EMA',
         },
-        width: 1400,
-        height: 1100
+          width: 1100,
+        height: 900
       };
 
       var chart = new google.charts.Line(document.getElementById('twelvetwentysixday'));
@@ -84,8 +86,8 @@
         chart: {
           title: 'Stock Index w/12-day EMA',
         },
-        width: 1400,
-        height: 1100
+         width: 1100,
+        height: 900
       };
 
       var chart = new google.charts.Line(document.getElementById('twelvetwentyday'));
@@ -115,8 +117,8 @@
         chart: {
           title: 'Stock Index w/Bollinger Band Comparisons',
         },
-        width: 1400,
-        height: 1100
+         width: 1100,
+        height: 900
       };
 
       var chart = new google.charts.Line(document.getElementById('Bollinger'));
@@ -152,6 +154,7 @@ if($notThroughout===NULL && $notExist===NULL)
 
 <br>
 	<br>
+  <div class="charts">
     <div id="stocks"></div>
     <br>
     <div id="twelvetwentyday"></div>
@@ -159,4 +162,5 @@ if($notThroughout===NULL && $notExist===NULL)
     <div id="twelvetwentysixday"></div>
     <br>
     <div id="Bollinger"></div>
+    </div>
 

@@ -37,3 +37,12 @@ width:100%;}
     /* surround with whitespace */
     margin: 20px;
 }
+
+.charts
+{
+    margin-left:5%;
+}
+
+#error h4 {
+    color:red;
+}
